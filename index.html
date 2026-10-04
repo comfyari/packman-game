@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080c1d">
+  <meta name="description" content="PAC//NOVA: a modern neon maze chase game.">
+  <title>PAC//NOVA — Neon Maze Arcade</title>
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon" aria-hidden="true"></span><span>PAC<span class="slashes">//</span>NOVA</span></div>
+      <div class="top-actions">
+        <span class="edition">NEON MAZE ARCADE <span class="edition-dot">•</span> 001</span>
+        <button id="soundButton" class="icon-button" type="button" aria-label="Mute sound" aria-pressed="false">♫</button>
+        <button id="pauseButton" class="icon-button" type="button" aria-label="Pause game">Ⅱ</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel stats-panel" aria-label="Game stats">
+        <div class="eyebrow">YOUR RUN <span class="tiny-star">✦</span></div>
+        <div class="score-label">SCORE</div>
+        <div id="score" class="score-value" aria-live="polite">000000</div>
+        <div class="divider"></div>
+        <div class="stat-row"><span>BEST SCORE</span><strong id="best">000000</strong></div>
+        <div class="stat-row"><span>LEVEL</span><strong id="level">01</strong></div>
+        <div class="stat-row lives-row"><span>LIVES</span><strong id="lives" aria-label="3 lives">● ● ●</strong></div>
+        <div class="progress-block">
+          <div class="progress-heading"><span>MAZE CLEARED</span><strong id="progressText">0%</strong></div>
+          <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+        </div>
+        <div class="side-footer">CHASE THE LIGHT.<br><span>OWN THE MAZE.</span></div>
+      </aside>
+
+      <section class="stage" aria-label="Game area">
+        <div class="stage-topline"><span><span class="live-dot"></span> ARCADE MODE</span><span id="statusText">READY TO PLAY</span></div>
+        <div class="board-frame">
+          <canvas id="gameCanvas" width="672" height="704" aria-label="Maze game board. Use arrow keys, WASD, swipe, or the direction buttons to move."></canvas>
+          <div id="overlay" class="overlay">
+            <div class="overlay-card">
+              <div class="overlay-kicker">THE MAZE IS CALLING</div>
+              <div class="overlay-logo">PAC<span>//</span>NOVA</div>
+              <p id="overlayMessage">Collect every spark. Outsmart the ghosts. Own the night.</p>
+              <button id="playButton" class="primary-button" type="button">START GAME <span>↗</span></button>
+              <div class="overlay-hint">ARROW KEYS / WASD TO MOVE <span>•</span> P TO PAUSE</div>
+            </div>
+          </div>
+        </div>
+        <div class="stage-bottomline"><span>01 / INFINITE RUN</span><span>POWER UP <span class="pink">✦</span> BREAK FREE</span></div>
+      </section>
+
+      <aside class="panel guide-panel" aria-label="How to play">
+        <div class="eyebrow">HOW TO PLAY <span class="tiny-star">✦</span></div>
+        <h2>Small moves.<br><em>Big energy.</em></h2>
+        <p>Clear the maze. Dodge the ghosts. Grab a power cell to turn the tables.</p>
+        <div class="guide-item"><span class="guide-glyph pellet-glyph"></span><div><strong>COLLECT SPARKS</strong><small>Clear them all to level up</small></div><b>+10</b></div>
+        <div class="guide-item"><span class="guide-glyph power-glyph"></span><div><strong>POWER CELLS</strong><small>Chase ghosts for 7 seconds</small></div><b>+50</b></div>
+        <div class="guide-item"><span class="guide-glyph ghost-glyph">●</span><div><strong>GHOST COMBO</strong><small>Keep the streak alive</small></div><b>×2</b></div>
+        <div id="powerPanel" class="power-panel"><div class="power-heading"><span>POWER MODE</span><strong id="powerTime">—</strong></div><div class="progress-track"><div id="powerBar" class="power-fill"></div></div></div>
+        <div class="controls-help"><span>MOVE</span><div><kbd>↑</kbd><div><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div></div><small>or WASD / swipe</small></div>
+      </aside>
+    </main>
+
+    <nav class="touch-controls" aria-label="Touch movement controls">
+      <button data-dir="left" aria-label="Move left">←</button>
+      <div><button data-dir="up" aria-label="Move up">↑</button><button data-dir="down" aria-label="Move down">↓</button></div>
+      <button data-dir="right" aria-label="Move right">→</button>
+    </nav>
+    <footer class="footer"><span>BUILT FOR THE CHASE</span><span>✦ &nbsp; ONE MORE RUN?</span></footer>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
